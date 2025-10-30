@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/path.gd" type="Script" id=1]
+[ext_resource path="res://scenes/fish.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/follow.gd" type="Script" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( -211.425, 8.48528, 211.425, -8.48528, 193, -100, -425.684, 77.0538, 425.684, -77.0538, 351, 42, 61.5183, -50.2046, -61.5183, 50.2046, -93, 93, -26.8701, -290.621, 26.8701, 290.621, -344, 0, 82.7315, 104.652, -82.7315, -104.652, -105, -124, 16.9706, -53.033, -16.9706, 53.033, 285, -241, -2.82843, 144.957, 2.82843, -144.957, 599, -167, 76.3675, -62.9325, -76.3675, 62.9325, 330, -144, 0, 0, 0, 0, 248.219, -139.838, 89.0955, -24.7487, -89.0955, 24.7487, 51, -203, 105.359, -20.5061, -105.359, 20.5061, -110, -79, -69.2965, -50.2046, 69.2965, 50.2046, -53, 55, -54.4472, 45.2548, 54.4472, -45.2548, 90, 20, -173.948, -58.6899, 173.948, 58.6899, 194, -99 )
+}
+
+[node name="path" type="Path2D"]
+position = Vector2( -22, 64 )
+z_index = -1
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+
+[node name="follow" type="PathFollow2D" parent="."]
+position = Vector2( 193, -100 )
+rotation = -0.0334565
+script = ExtResource( 3 )
+
+[node name="fish" parent="follow" instance=ExtResource( 2 )]
+
+[connection signal="area_entered" from="follow/fish" to="." method="_on_fish_area_entered"]

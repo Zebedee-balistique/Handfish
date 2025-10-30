@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/endurance.gd" type="Script" id=1]
+[ext_resource path="res://images/barre_contours.png" type="Texture" id=2]
+[ext_resource path="res://images/barre_interieur.png" type="Texture" id=3]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="endurance" type="TextureProgress" parent="."]
+margin_left = 18.0
+margin_top = -42.0
+margin_right = 518.0
+margin_bottom = 458.0
+rect_scale = Vector2( 0.448256, 0.44773 )
+step = 0.1
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+script = ExtResource( 1 )

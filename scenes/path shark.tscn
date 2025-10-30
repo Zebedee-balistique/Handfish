@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/requin.tscn" type="PackedScene" id=1]
+[ext_resource path="res://follow.gd" type="Script" id=2]
+[ext_resource path="res://scripts/path shark.gd" type="Script" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( -129.366, 166.124, 129.366, -166.124, 1330.2, -234, -1.77243, -31.2315, 1.77243, 31.2315, 1495.39, -217, 216.692, 31.4823, -216.692, -31.4823, 1481.95, 100, 34.3191, -30.4608, -34.3191, 30.4608, 1276.42, 209, 156.32, -0.113297, -156.32, 0.113297, 947.948, 278, -60.1683, 267.461, 60.1683, -267.461, 606.145, -31, 0, 0, 0, 0, 985.405, -322, 0, 0, 0, 0, 1224.25, -239, 47.1182, -351.095, -47.1182, 351.095, 1910.16, 18, 226.543, -256.665, -226.543, 256.665, 834.617, -82, -185.335, 280.225, 185.335, -280.225, 930.893, -62, -66.8391, -26.9391, 66.8391, 26.9391, 1170.77, -139, -15.2029, 25.7341, 15.2029, -25.7341, 1310.03, -201, 0, 0, 0, 0, 1330.2, -234 )
+}
+
+[node name="path shark" type="Path2D"]
+position = Vector2( -46, 33 )
+scale = Vector2( 1.0412, 1 )
+curve = SubResource( 1 )
+script = ExtResource( 3 )
+
+[node name="follow" type="PathFollow2D" parent="."]
+position = Vector2( 943.854, -16 )
+rotation = -0.22497
+script = ExtResource( 2 )
+
+[node name="Requin" parent="follow" instance=ExtResource( 1 )]
+position = Vector2( 7.20148, -4.50708 )
